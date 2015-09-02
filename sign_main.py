@@ -4,14 +4,16 @@ import parse_sign ,sign_fun
 import urllib
 import time
 import os
+import sys
 
 def main():
-    if not os.path.exists('bduss'):
+    bduss_path = sys.path[0]+os.sep+'bduss'
+    if not os.path.exists(bduss_path):
         print "bduss not found!"
         exit()
     print time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())),':'
     bduss_list = []
-    with open("bduss") as f_bduss :
+    with open(bduss_path) as f_bduss :
         for bduss in f_bduss.readlines():
             bduss_list.append(bduss[:-1])
     for bduss in bduss_list:
