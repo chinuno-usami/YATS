@@ -5,8 +5,12 @@ import urllib
 import time
 import os
 import sys
+import socket
 
 def main():
+    # set socket timeout
+    timeout = 20
+    socket.setdefaulttimeout(timeout)
     bduss_path = sys.path[0]+os.sep+'bduss'
     if not os.path.exists(bduss_path):
         print "bduss not found!"

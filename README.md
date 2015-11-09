@@ -9,4 +9,4 @@ python 实现的贴吧签到脚本
 # 使用方式
 1. 获取源码到任意目录
 2. yats目录中新建bduss文件存放bduss,每条一行
-3. 设置计划任务，建议1点之后签到`10 01 * * * /usr/bin/python2 /path/to/yats/sign_main.py >> sign.log`
+3. 设置计划任务，建议1点之后签到`10 01 * * * /usr/bin/python2 /path/to/yats/sign_main.py >> /path/to/yats/sign.log`
