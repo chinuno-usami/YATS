@@ -32,13 +32,15 @@ def main():
                     tbs = sign_fun.gettbs(bduss)
                     fid = sign_fun.getfid(tieba)
                     if sign_fun.sign(bduss,fid,tieba,tbs):
-                        print urllib.unquote(tieba),"done"
+                        print urllib.unquote(tieba).decode("gbk").encode("utf8"),"done"
                         done_list.append(tieba)
                     else:
-                        print urllib.unquote(tieba),"failed"
+                        print urllib.unquote(tieba).decode("gbk").encode("utf8"),"failed"
                 for tb in done_list:
                     tiebalist.remove(tb)
     print "all sign done"
-    print "failed list:",tiebalist
+    print "failed list:"
+    for tb in tiebalist:
+        print tb.decode("gbk").encode("utf8")
 if __name__ == '__main__':
     main()

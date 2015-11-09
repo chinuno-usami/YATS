@@ -14,23 +14,29 @@ sys.setdefaultencoding('gbk')
 def send_get(req):
     '''Send get resquest
     '''
-    opener = urllib2.build_opener(urllib2.HTTPCookieProcessor())
-    response = opener.open(req) 
-    try:
-        return response.read()
-    except Exception, e:
-        print u'发生了一个错误: %s' % e
+    opener = urllib2.build_opener(urllib2.HTTPCookieProcessor()) 
+    for x in xrange(1,4):
+        try:
+            response = opener.open(req)
+            return response.read()
+        except Exception, e:
+            print 'an error has occurred : %s' % e
+    print "network error"
+    exit()
     
 
 def post(req,data):  
     '''Send post resquest
     '''
     opener = urllib2.build_opener(urllib2.HTTPCookieProcessor())  
-    response = opener.open(req, data) 
-    try:
-        return response.read()
-    except Exception, e:
-        print u'发生了一个错误: %s' % e
+    for x in xrange(1,4):
+        try:
+            response = opener.open(req, data) 
+            return response.read()
+        except Exception, e:
+            print 'an error has occurred : %s' % e
+    print "network error"
+    exit()
 
 # tbs
 def gettbs(bduss):
